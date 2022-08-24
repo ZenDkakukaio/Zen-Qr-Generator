@@ -1,0 +1,88 @@
+
+
+<ScreenWork>:
+    Screen:
+        #name: "sc2"
+        size_hint: 1, 1
+        #size: root.width, root.height
+        pos_hint:{"center_x": .5, "center_y": .5}
+
+        MDScreen:
+            id: id_MDScreen
+            size_hint: None, None
+            md_bg_color: 1, 1, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size: root.width, root.height
+
+            MDFloatLayout:
+                size_hint: None, None
+                size: id_MDScreen.width, id_MDScreen.height - dp(200)
+                md_bg_color: 135/255, 206/255, 235/255, 1
+                pos_hint: {"center_x": .5, "center_y": .9}
+
+                Image:
+                    size_hint: None, None
+                    size: dp(200), dp(200)
+                    pos_hint: {"center_x": .5, "center_y": .3}
+                    source: root.data_logo
+
+
+            MDFloatLayout:
+                size_hint: None, None
+                size: id_MDScreen.width, id_MDScreen.height - dp(200)
+                md_bg_color: 1, 1, 1, 1
+                pos_hint: {"center_x": .5, "center_y": .3}
+
+
+                MDTextField:
+                    id: id_url_field
+                    hint_text: "(Entrer l'URL de mappage)"
+                    required: True
+                    helper_text_mode: "on_error"
+                    helper_text: "Veuillez entrer une URL valide..."
+                    pos_hint: {"center_x": .5, "center_y": .9}
+                    line_color_focus: 1, 0, 1, 1
+                    color_mode: "custom"
+                    line_color_normal: 1, 1, 1, .65
+
+
+                MDTextField:
+                    id: id_name_image
+                    hint_text: "(Entrer un nom valide pour votre image)"
+                    required: True
+                    pos_hint: {"center_x": .5, "center_y": .75}
+                    line_color_focus: 1, 0, 1, 1
+                    color_mode: "custom"
+                    line_color_normal: 0, 0, 0, .65
+
+
+                MDRectangleFlatButton:
+                    text: "Génerer"
+                    pos_hint: {"center_x": .2, "center_y": .1}
+                    on_release: root.generate_qr_code()
+
+                Image:
+                    id: id_image_generate_qr_code
+                    size_hint: None, None
+                    size: dp(150), dp(150)
+                    pos_hint: {"center_x": .5, "center_y": .4}
+                    source: root.path_img
+
+
+                MDRectangleFlatButton:
+                    text: "visualisation de l'image"
+                    pos_hint: {"center_x": .7, "center_y": .1}
+                    on_release: root.push_image()
+
+
+
+
+
+
+
+    Screen:
+        id: id_view_image
+        name: "view_image"
+        size_hint: 1, 1
+        pos_hint: {"center_x": .5, "center_y": .5}
+

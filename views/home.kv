@@ -1,0 +1,53 @@
+#: import ScreenWork controller.screen_work.ScreenWork
+
+
+<HomeScanGeneretor>:
+    Screen:
+        name: "sc1"
+        size_hint: None, None
+        size: root.width, root.height
+        pos_hint:{"center_x": .5, "center_y": .5}
+
+        MDScreen:
+            id: id_MDScreen
+            size_hint: None, None
+            md_bg_color: 1, 1, 1, 1
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size: root.width, root.height
+
+            Image:
+                id: id_logo
+                size_hint: None, None
+                size: dp(250), dp(250)
+                source: root.data_logo
+                pos_hint: {"center_x": .5, "center_y": .75}
+
+
+            MDSpinner:
+                id: id_spinner
+                size_hint: None, None
+                size: dp(48), dp(48)
+                pos_hint: {"center_x": .5, "center_y": .5}
+                #determinate: True
+                active: True
+                color: 135/255, 206/255, 235/255, 1
+
+
+
+            MDIconButton:
+                id: id_tap_button
+                icon: "hand-pointing-right"
+                pos_hint: {"center_x": .7, "center_y": .2}
+                on_release: root.tap_target_start()
+                size_hint: 1, 1
+
+
+
+
+    ScreenWork:
+        id: id_screenwork
+        name: "_screenwork"
+        size_hint: 1, 1
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+
